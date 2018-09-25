@@ -1,0 +1,36 @@
+{
+  "name": "hast-util-class-list",
+  "version": "1.0.0",
+  "description": "Simulate the browser's classList API for HAST nodes",
+  "main": "index.js",
+  "devDependencies": {
+    "hastscript": "^4.0.0",
+    "standard": "^12.0.0",
+    "tape": "^4.9.1"
+  },
+  "scripts": {
+    "test": "standard && tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brechtcs/hast-util-class-list.git"
+  },
+  "keywords": [
+    "hast",
+    "hast-util",
+    "classList",
+    "class-list",
+    "class",
+    "list",
+    "add",
+    "contains",
+    "remove",
+    "toggle"
+  ],
+  "author": "Brecht Savelkoul <brecht.savelkoul@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/brechtcs/hast-util-class-list/issues"
+  },
+  "homepage": "https://github.com/brechtcs/hast-util-class-list#readme"
+}
