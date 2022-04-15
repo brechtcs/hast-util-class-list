@@ -1,29 +1,37 @@
 # hast-util-class-list
 
+forked from [hast-util-class-list](https://github.com/brechtcs/hast-util-class-list)
+
 Simulate the browser's [`classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList) API for [`hast`](https://github.com/syntax-tree/hast) nodes.
 
 ## Installation
 
-`npm install hast-util-class-list`
+`npm install @enpitsulin/hast-util-class-list`
 
 ## Usage
 
 ```js
-var ClassList = require('hast-util-class-list')
+import ClassList from "hast-util-class-list";
 
-var el = {type: 'element', tagName: 'div', properties: {className: ['one']}}
-var classList = ClassList(el)
+const el = {
+  type: "element",
+  tagName: "div",
+  properties: { className: ["one"] },
+};
+const classList = ClassList(el);
 
-classList.contains('one') // => true
-classList.toggle('one') // => false
+classList.contains("one"); // => true
+classList.toggle("one"); // => false
 // el: {type: 'element', tagName: 'div', properties: {className: []}}
-classList.add('one')
+classList.add("one");
 // el: {type: 'element', tagName: 'div', properties: {className: ['one']}}
-classList.replace('one', 'two')
+classList.replace("one", "two");
 // el: {type: 'element', tagName: 'div', properties: {className: ['two']}}
-classList.remove('two')
+classList.remove("two");
 // el: {type: 'element', tagName: 'div', properties: {className: []}}
 ```
+
+and some more API just reference: [MDN-DOMTokenList](https://developer.mozilla.org/docs/Web/API/DOMTokenList)
 
 ## Acknowledgements
 
