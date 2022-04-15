@@ -1,6 +1,6 @@
 {
   "name": "@enpitsulin/hast-util-class-list",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
   "type": "module",
@@ -25,7 +25,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enptisulin/hast-util-class-list.git"
+    "url": "git+https://github.com/enpitsuLin/hast-util-class-list.git"
   },
   "keywords": [
     "hast",
@@ -42,7 +42,7 @@
   "author": "Brecht Savelkoul <brecht.savelkoul@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/enptisulin/hast-util-class-list/issues"
+    "url": "https://github.com/enpitsuLin/hast-util-class-list/issues"
   },
-  "homepage": "https://github.com/enptisulin/hast-util-class-list#readme"
+  "homepage": "https://github.com/enpitsuLin/hast-util-class-list#readme"
 }
