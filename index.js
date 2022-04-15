@@ -1,10 +1,24 @@
-function ClassList (node) {
-  if (!node.properties.className) {
-    node.properties.className = []
+/**
+ * @typedef {import('hast').Element} Element
+ */
+
+/**
+ * @param {Element} node
+ */
+export default function classList (node) {
+  if (node.properties?.className) {
+    if (typeof node.properties?.className === 'boolean') {
+      node.properties.className = []
+    } else if (!Array.isArray(node.properties?.className)) {
+      node.properties.className = [node.properties.className]
+    }
+  } else {
+    if (node.properties) node.properties.className = []
+    else node.properties = { className: /** @type {string[]} */ ([]) }
   }
-  var tokens = node.properties.className
-  var attribute = tokens.join(' ')
-  var classList = {
+  const tokens = /** @type {string[]} */ (node.properties?.className) || []
+  let attribute = tokens.join(' ')
+  const classList = {
     add: add,
     remove: remove,
     contains: contains,
@@ -17,23 +31,35 @@ function ClassList (node) {
     }
   }
 
+  /**
+   * @param {string} token
+   */
   function add (token) {
     if (tokens.indexOf(token) > -1) return
     tokens.push(token)
     update()
   }
 
+  /**
+   * @param {string} token
+   */
   function remove (token) {
-    var index = tokens.indexOf(token)
+    const index = tokens.indexOf(token)
     if (index === -1) return
     tokens.splice(index, 1)
     update()
   }
 
+  /**
+   * @param {string} token
+   */
   function contains (token) {
     return tokens.includes(token)
   }
 
+  /**
+   * @param {string} token
+   */
   function toggle (token) {
     if (contains(token)) {
       remove(token)
@@ -44,11 +70,18 @@ function ClassList (node) {
     }
   }
 
+  /**
+   * @param {string} a
+   * @param {string} b
+   */
   function replace (a, b) {
-    var i = tokens.indexOf(a)
+    const i = tokens.indexOf(a)
     if (i > -1) tokens[i] = b
   }
 
+  /**
+   * @param { number} index
+   */
   function item (index) {
     return tokens[index] || null
   }
@@ -60,5 +93,3 @@ function ClassList (node) {
 
   return classList
 }
-
-module.exports = ClassList

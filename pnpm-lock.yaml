@@ -1,14 +1,20 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/hast': ^2.3.4
+  '@types/tape': ^4.13.2
   hastscript: ^7.0.2
   standard: ^16.0.4
   tape: ^5.5.3
+  typescript: ^4.6.3
 
 devDependencies:
+  '@types/hast': 2.3.4
+  '@types/tape': 4.13.2
   hastscript: 7.0.2
   standard: 16.0.4
   tape: 5.5.3
+  typescript: 4.6.3
 
 packages:
 
@@ -59,6 +65,16 @@ packages:
 
   /@types/json5/0.0.29:
     resolution: {integrity: sha1-7ihweulOEdK4J7y+UnC86n8+ce4=}
+    dev: true
+
+  /@types/node/17.0.24:
+    resolution: {integrity: sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==}
+    dev: true
+
+  /@types/tape/4.13.2:
+    resolution: {integrity: sha512-V1ez/RtYRGN9cNYApw5xf27DpMkTB0033X6a2i3KUmKhSojBfbWN0i3EgZxboUG96WJLHLdOyZ01aiZwVW5aSA==}
+    dependencies:
+      '@types/node': 17.0.24
     dev: true
 
   /@types/unist/2.0.6:
@@ -1710,6 +1726,12 @@ packages:
   /type-fest/0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+    dev: true
+
+  /typescript/4.6.3:
+    resolution: {integrity: sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
     dev: true
 
   /unbox-primitive/1.0.1:
