@@ -4,9 +4,9 @@
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
   "devDependencies": {
-    "hastscript": "^4.0.0",
-    "standard": "^12.0.0",
-    "tape": "^4.9.1"
+    "hastscript": "^7.0.2",
+    "standard": "^16.0.4",
+    "tape": "^5.5.3"
   },
   "scripts": {
     "test": "standard && tape test.js"
