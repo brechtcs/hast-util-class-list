@@ -1,9 +1,9 @@
-var ClassList = require('./')
-var hastscript = require('hastscript')
-var test = require('tape')
+import ClassList from './index.js'
+import { h as hastscript } from 'hastscript'
+import test from 'tape'
 
 test('init', function (t) {
-  var el = h('p.center', 'some stuff')
+  const el = h('p.center', 'some stuff')
 
   t.equal(el.classList.length, 1)
   t.equal(el.classList.item(0), 'center')
@@ -12,7 +12,7 @@ test('init', function (t) {
 })
 
 test('add', function (t) {
-  var el = h('p', 'some stuff')
+  const el = h('p', 'some stuff')
 
   el.classList.add('highlight')
   t.equal(el.classList.length, 1)
@@ -21,7 +21,7 @@ test('add', function (t) {
 })
 
 test('remove', function (t) {
-  var el = h('p.highlight', 'some stuff')
+  const el = h('p.highlight', 'some stuff')
 
   el.classList.remove('highlight')
   t.equal(el.classList.length, 0)
@@ -30,7 +30,7 @@ test('remove', function (t) {
 })
 
 test('toggle', function (t) {
-  var el = h('p.center', 'some stuff')
+  const el = h('p.center', 'some stuff')
 
   t.notOk(el.classList.toggle('center'))
   t.notOk(el.properties.className.includes('center'))
@@ -42,7 +42,7 @@ test('toggle', function (t) {
 })
 
 test('replace', function (t) {
-  var el = h('p.center', 'some stuff')
+  const el = h('p.center', 'some stuff')
 
   el.classList.replace('center', 'highlight')
   t.notOk(el.properties.className.includes('center'))
@@ -52,7 +52,7 @@ test('replace', function (t) {
 })
 
 test('toString', function (t) {
-  var el = h('p', 'some stuff')
+  const el = h('p', 'some stuff')
 
   el.classList.add('first')
   el.classList.add('second')
@@ -65,7 +65,7 @@ test('toString', function (t) {
  * vdom function with `classList
  */
 function h () {
-  var el = hastscript.apply(this, arguments)
+  const el = hastscript.apply(this, arguments)
   el.classList = ClassList(el)
   return el
 }

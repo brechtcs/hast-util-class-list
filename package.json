@@ -3,6 +3,13 @@
   "version": "1.0.0",
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "engines": {
+    "node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+  },
   "devDependencies": {
     "hastscript": "^7.0.2",
     "standard": "^16.0.4",
