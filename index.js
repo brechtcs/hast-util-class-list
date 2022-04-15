@@ -6,15 +6,8 @@
  * @param {Element} node
  */
 export default function classList (node) {
-  if (node.properties?.className) {
-    if (typeof node.properties?.className === 'boolean') {
-      node.properties.className = []
-    } else if (!Array.isArray(node.properties?.className)) {
-      node.properties.className = [node.properties.className]
-    }
-  } else {
-    if (node.properties) node.properties.className = []
-    else node.properties = { className: /** @type {string[]} */ ([]) }
+  if (!node.properties?.className) {
+    node.properties = { className: [] }
   }
   const tokens = /** @type {string[]} */ (node.properties?.className) || []
   let attribute = tokens.join(' ')
