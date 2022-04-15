@@ -2,7 +2,7 @@ import ClassList from './index.js'
 import { h } from 'hastscript'
 import test from 'tape'
 
-test('init', function (t) {
+test('init', (t) => {
   const el = h('p.center', 'some stuff')
   const expected = ClassList(el)
 
@@ -12,7 +12,16 @@ test('init', function (t) {
   t.end()
 })
 
-test('add', function (t) {
+test('init with no className', (t) => {
+  const el = h('p', 'some stuff')
+  const expected = ClassList(el)
+
+  t.equal(expected.length, 0)
+  t.notOk(expected.item(0))
+  t.end()
+})
+
+test('add', (t) => {
   const el = h('p', 'some stuff')
   const expected = ClassList(el)
 
@@ -22,7 +31,17 @@ test('add', function (t) {
   t.end()
 })
 
-test('remove', function (t) {
+test('add exist class', (t) => {
+  const el = h('p.highlight', 'some stuff')
+  const expected = ClassList(el)
+
+  expected.add('highlight')
+  t.equal(expected.length, 1)
+  t.ok(expected.contains('highlight'))
+  t.end()
+})
+
+test('remove', (t) => {
   const el = h('p.highlight', 'some stuff')
   const expected = ClassList(el)
 
@@ -32,7 +51,17 @@ test('remove', function (t) {
   t.end()
 })
 
-test('toggle', function (t) {
+test('remove non-exist class', (t) => {
+  const el = h('p.highlight', 'some stuff')
+  const expected = ClassList(el)
+
+  expected.remove('non-highlight')
+  t.equal(expected.length, 1)
+  t.ok(expected.contains('highlight'))
+  t.end()
+})
+
+test('toggle', (t) => {
   const el = h('p.center', 'some stuff')
   const expected = ClassList(el)
 
@@ -45,7 +74,7 @@ test('toggle', function (t) {
   t.end()
 })
 
-test('replace', function (t) {
+test('replace', (t) => {
   const el = h('p.center', 'some stuff')
   const expected = ClassList(el)
 
@@ -56,7 +85,7 @@ test('replace', function (t) {
   t.end()
 })
 
-test('toString', function (t) {
+test('toString', (t) => {
   const el = h('p', 'some stuff')
   const expected = ClassList(el)
 
