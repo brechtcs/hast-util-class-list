@@ -1,10 +1,14 @@
 {
   "name": "@enpitsulin/hast-util-class-list",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
   "type": "module",
   "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
   "devDependencies": {
     "@types/hast": "^2.3.4",
     "@types/tape": "^4.13.2",
