@@ -9,7 +9,7 @@ export default function classList (node) {
   if (!node.properties?.className) {
     node.properties = { className: [] }
   }
-  const tokens = /** @type {string[]} */ (node.properties?.className) || []
+  const tokens = /** @type {string[]} */ (node.properties?.className)
   let attribute = tokens.join(' ')
   const classList = {
     add: add,
