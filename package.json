@@ -17,7 +17,7 @@
     "typescript": "^4.6.3"
   },
   "scripts": {
-    "build": "rimraf \"{lib/**,}*.d.ts\" && tsc && type-coverage",
+    "build": "rimraf \"*.d.ts\" && tsc && type-coverage",
     "format": "standard --fix",
     "test-api": "node test.js",
     "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov node test.js",
