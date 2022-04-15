@@ -11,7 +11,7 @@ Simulate the browser's [`classList`](https://developer.mozilla.org/en-US/docs/We
 ## Usage
 
 ```js
-import ClassList from "hast-util-class-list";
+import ClassList from "@enpitsulin/hast-util-class-list";
 
 const el = {
   type: "element",
@@ -31,7 +31,7 @@ classList.remove("two");
 // el: {type: 'element', tagName: 'div', properties: {className: []}}
 ```
 
-and some more API just reference: [MDN-DOMTokenList](https://developer.mozilla.org/docs/Web/API/DOMTokenList)
+and some more API just reference: [`classList`](https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
 
 ## Acknowledgements
 
