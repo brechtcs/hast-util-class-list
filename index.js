@@ -12,6 +12,7 @@ function ClassList (node) {
     replace: replace,
     item: item,
     length: tokens.length,
+    forEach,
     entries,
     keys,
     values,
@@ -67,6 +68,10 @@ function ClassList (node) {
   function update () {
     classList.length = tokens.length
     attribute = tokens.join(' ')
+  }
+
+  function forEach (callback, thisArg) {
+    tokens.forEach(callback, thisArg)
   }
 
   function entries () {
