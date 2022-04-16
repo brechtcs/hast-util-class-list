@@ -12,6 +12,9 @@ function ClassList (node) {
     replace: replace,
     item: item,
     length: tokens.length,
+    entries,
+    keys,
+    values,
     toString: function () {
       return attribute
     }
@@ -56,6 +59,54 @@ function ClassList (node) {
   function update () {
     classList.length = tokens.length
     attribute = tokens.join(' ')
+  }
+
+  function entries () {
+    return {
+      [Symbol.iterator]: () => {
+        let index = 0
+        return {
+          next: () => {
+            if (index < tokens.length) {
+              return { value: [index, tokens[index++]], done: false }
+            }
+            return { done: true }
+          }
+        }
+      }
+    }
+  }
+
+  function keys () {
+    return {
+      [Symbol.iterator]: () => {
+        let index = 0
+        return {
+          next: () => {
+            if (index < tokens.length) {
+              return { value: index++, done: false }
+            }
+            return { done: true }
+          }
+        }
+      }
+    }
+  }
+
+  function values () {
+    return {
+      [Symbol.iterator]: () => {
+        let index = 0
+        return {
+          next: () => {
+            if (index < tokens.length) {
+              return { value: tokens[index++], done: false }
+            }
+            return { done: true }
+          }
+        }
+      }
+    }
   }
 
   return classList
