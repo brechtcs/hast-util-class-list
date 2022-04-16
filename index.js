@@ -37,14 +37,22 @@ function ClassList (node) {
     return tokens.includes(token)
   }
 
-  function toggle (token) {
-    if (contains(token)) {
-      remove(token)
-      return false
+  function toggle (token, force) {
+    if (force !== undefined) {
+      force = typeof force === 'function' ? force() : force
+      if (this.contains(token) && !force) {
+        this.remove(token)
+      } else if (force) {
+        this.add(token)
+      }
     } else {
-      add(token)
-      return true
+      if (this.contains(token)) {
+        this.remove(token)
+      } else {
+        this.add(token)
+      }
     }
+    return this.contains(token)
   }
 
   function replace (a, b) {
