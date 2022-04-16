@@ -2,9 +2,9 @@ function ClassList (node) {
   if (!node.properties.className) {
     node.properties.className = []
   }
-  var tokens = node.properties.className
-  var attribute = tokens.join(' ')
-  var classList = {
+  const tokens = node.properties.className
+  let attribute = tokens.join(' ')
+  const classList = {
     add: add,
     remove: remove,
     contains: contains,
@@ -24,7 +24,7 @@ function ClassList (node) {
   }
 
   function remove (token) {
-    var index = tokens.indexOf(token)
+    const index = tokens.indexOf(token)
     if (index === -1) return
     tokens.splice(index, 1)
     update()
@@ -45,7 +45,7 @@ function ClassList (node) {
   }
 
   function replace (a, b) {
-    var i = tokens.indexOf(a)
+    const i = tokens.indexOf(a)
     if (i > -1) tokens[i] = b
   }
 
@@ -61,4 +61,4 @@ function ClassList (node) {
   return classList
 }
 
-module.exports = ClassList
+export default ClassList
