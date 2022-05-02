@@ -75,51 +75,15 @@ function ClassList (node) {
   }
 
   function entries () {
-    return {
-      [Symbol.iterator]: () => {
-        let index = 0
-        return {
-          next: () => {
-            if (index < tokens.length) {
-              return { value: [index, tokens[index++]], done: false }
-            }
-            return { done: true }
-          }
-        }
-      }
-    }
+    return tokens.entries()
   }
 
   function keys () {
-    return {
-      [Symbol.iterator]: () => {
-        let index = 0
-        return {
-          next: () => {
-            if (index < tokens.length) {
-              return { value: index++, done: false }
-            }
-            return { done: true }
-          }
-        }
-      }
-    }
+    return tokens.keys()
   }
 
   function values () {
-    return {
-      [Symbol.iterator]: () => {
-        let index = 0
-        return {
-          next: () => {
-            if (index < tokens.length) {
-              return { value: tokens[index++], done: false }
-            }
-            return { done: true }
-          }
-        }
-      }
-    }
+    return tokens.values()
   }
 
   return classList
