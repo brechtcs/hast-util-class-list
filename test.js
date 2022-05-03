@@ -41,6 +41,24 @@ test('toggle', function (t) {
   t.end()
 })
 
+test('toggle witch force', (t) => {
+  const el = h('p.center', 'some stuff')
+
+  t.ok(el.classList.toggle('center', true))
+  t.ok(el.classList.contains('center'))
+  t.notOk(el.classList.toggle('center', false))
+  t.notOk(el.classList.contains('center'))
+
+  t.ok(el.classList.toggle('center', () => true))
+  t.ok(el.classList.contains('center'))
+  t.notOk(el.classList.toggle('center', () => false))
+  t.notOk(el.classList.contains('center'))
+
+  t.equal(el.classList.length, 0)
+
+  t.end()
+})
+
 test('replace', function (t) {
   const el = h('p.center', 'some stuff')
 
@@ -58,6 +76,42 @@ test('toString', function (t) {
   el.classList.add('second')
   t.equal(el.classList.length, 2)
   t.equal(el.classList.toString(), 'first second')
+  t.end()
+})
+
+test('entries', (t) => {
+  const el = h('p.center.top', 'some stuff')
+
+  t.notStrictEqual(
+    [...el.classList.entries()],
+    [
+      [0, 'center'],
+      [1, 'top']
+    ]
+  )
+  t.end()
+})
+
+test('keys', (t) => {
+  const el = h('p.center.top', 'some stuff')
+
+  t.notStrictEqual([...el.classList.keys()], [0, 1])
+  t.end()
+})
+
+test('values', (t) => {
+  const el = h('p.center.top', 'some stuff')
+
+  t.notStrictEqual([...el.classList.values()], ['center', 'top'])
+  t.end()
+})
+
+test('forEach', (t) => {
+  const el = h('p.a.b.c', 'some stuff')
+
+  el.classList.forEach((value, key) => {
+    t.equal(el.classList.item(key), value)
+  })
   t.end()
 })
 
