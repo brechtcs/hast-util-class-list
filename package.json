@@ -16,9 +16,11 @@
     "hastscript": "^7.0.2",
     "standard": "^16.0.4",
     "tape": "^5.5.3",
+    "type-coverage": "^2.21.1",
     "typescript": "^4.6.4"
   },
   "scripts": {
+    "build": "tsc && type-coverage --at-least 100",
     "test": "standard && tape test.js"
   },
   "repository": {
