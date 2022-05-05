@@ -56,8 +56,8 @@ function ClassList (node) {
   }
 
   /**
-   * @param {any} token
-   * @param {(() => any) | undefined} force
+   * @param {string} token
+   * @param {(() => boolean) | boolean} force
    */
   function toggle (token, force) {
     if (force !== undefined) {
@@ -100,7 +100,7 @@ function ClassList (node) {
 
   /**
    * @param {(value: string, index: number, array: string[]) => void} callback
-   * @param {any} thisArg
+   * @param {any} [thisArg]
    */
   function forEach (callback, thisArg) {
     tokens.forEach(callback, thisArg)

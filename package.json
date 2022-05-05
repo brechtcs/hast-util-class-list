@@ -20,7 +20,7 @@
     "typescript": "^4.6.4"
   },
   "scripts": {
-    "build": "tsc && type-coverage --at-least 100",
+    "build": "tsc && type-coverage",
     "test": "standard && tape test.js"
   },
   "repository": {
