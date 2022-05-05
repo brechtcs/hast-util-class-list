@@ -62,19 +62,19 @@ function ClassList (node) {
   function toggle (token, force) {
     if (force !== undefined) {
       force = typeof force === 'function' ? force() : force
-      if (this.contains(token) && !force) {
-        this.remove(token)
+      if (contains(token) && !force) {
+        remove(token)
       } else if (force) {
-        this.add(token)
+        add(token)
       }
     } else {
-      if (this.contains(token)) {
-        this.remove(token)
+      if (contains(token)) {
+        remove(token)
       } else {
-        this.add(token)
+        add(token)
       }
     }
-    return this.contains(token)
+    return contains(token)
   }
 
   /**
