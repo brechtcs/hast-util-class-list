@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/hast": "^2.3.4",
     "@types/tape": "^4.13.2",
+    "c8": "^7.11.2",
     "hastscript": "^7.0.2",
     "standard": "^16.0.4",
     "tape": "^5.5.3",
@@ -21,7 +22,10 @@
   },
   "scripts": {
     "build": "tsc && type-coverage",
-    "test": "standard && tape test.js"
+    "format": "standard --fix",
+    "test-api": "node test.js",
+    "test-coverage": "c8 --check-coverage --branches 100 --functions 100 --lines 100 --statements 100 --reporter lcov node test.js",
+    "test": "npm run build && npm run format && npm run test-coverage"
   },
   "repository": {
     "type": "git",
