@@ -4,6 +4,7 @@
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
   "type": "module",
+  "types": "./index.d.ts",
   "exports": {
     ".": "./index.js"
   },
