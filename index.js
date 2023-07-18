@@ -1,8 +1,16 @@
+/**
+ * @typedef {import('hast').Element} Element
+ */
+
+/**
+ * Classlist
+ * @param {Element} node
+ */
 function ClassList (node) {
-  if (!node.properties.className) {
-    node.properties.className = []
+  if (!node.properties?.className) {
+    node.properties = { className: [] }
   }
-  const tokens = node.properties.className
+  const tokens = /** @type {string[]} */(node.properties.className)
   let attribute = tokens.join(' ')
   const classList = {
     add: add,
@@ -21,12 +29,18 @@ function ClassList (node) {
     }
   }
 
+  /**
+   * @param {string} token
+   */
   function add (token) {
     if (tokens.indexOf(token) > -1) return
     tokens.push(token)
     update()
   }
 
+  /**
+   * @param {string} token
+   */
   function remove (token) {
     const index = tokens.indexOf(token)
     if (index === -1) return
@@ -34,33 +48,47 @@ function ClassList (node) {
     update()
   }
 
+  /**
+   * @param {string} token
+   */
   function contains (token) {
     return tokens.includes(token)
   }
 
+  /**
+   * @param {string} token
+   * @param {(() => boolean) | boolean} force
+   */
   function toggle (token, force) {
     if (force !== undefined) {
       force = typeof force === 'function' ? force() : force
-      if (this.contains(token) && !force) {
-        this.remove(token)
+      if (contains(token) && !force) {
+        remove(token)
       } else if (force) {
-        this.add(token)
+        add(token)
       }
     } else {
-      if (this.contains(token)) {
-        this.remove(token)
+      if (contains(token)) {
+        remove(token)
       } else {
-        this.add(token)
+        add(token)
       }
     }
-    return this.contains(token)
+    return contains(token)
   }
 
+  /**
+   * @param {string} a
+   * @param {string} b
+   */
   function replace (a, b) {
     const i = tokens.indexOf(a)
     if (i > -1) tokens[i] = b
   }
 
+  /**
+   * @param {number} index
+   */
   function item (index) {
     return tokens[index] || null
   }
@@ -70,6 +98,10 @@ function ClassList (node) {
     attribute = tokens.join(' ')
   }
 
+  /**
+   * @param {(value: string, index: number, array: string[]) => void} callback
+   * @param {any} [thisArg]
+   */
   function forEach (callback, thisArg) {
     tokens.forEach(callback, thisArg)
   }

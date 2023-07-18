@@ -7,6 +7,7 @@ test('init', function (t) {
 
   t.equal(el.classList.length, 1)
   t.equal(el.classList.item(0), 'center')
+  t.equal(el.classList.item(-1), null)
   t.ok(el.classList.contains('center'))
   t.end()
 })
@@ -26,6 +27,15 @@ test('remove', function (t) {
   el.classList.remove('highlight')
   t.equal(el.classList.length, 0)
   t.notOk(el.properties.className.includes('highlight'))
+  t.end()
+})
+
+test('remove classname doesn\'t exist', function (t) {
+  const el = h('p.highlight', 'some stuff')
+
+  el.classList.remove('no-class')
+  t.equal(el.classList.length, 1)
+  t.ok(el.properties.className.includes('highlight'))
   t.end()
 })
 
