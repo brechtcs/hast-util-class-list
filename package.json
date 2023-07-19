@@ -1,6 +1,6 @@
 {
   "name": "hast-util-class-list",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simulate the browser's classList API for HAST nodes",
   "main": "index.js",
   "type": "module",
