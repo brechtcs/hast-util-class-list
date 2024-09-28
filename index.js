@@ -7,9 +7,9 @@
  * @param {Element} node
  */
 function ClassList (node) {
-  if (!node.properties?.className) {
-    node.properties = { className: [] }
-  }
+  if (!node.properties) node.properties = {}
+  if (!node.properties.className) node.properties.className = []
+
   const tokens = /** @type {string[]} */(node.properties.className)
   let attribute = tokens.join(' ')
   const classList = {
